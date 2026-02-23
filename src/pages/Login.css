@@ -1,0 +1,186 @@
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.login-bg .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: pulse 6s ease-in-out infinite;
+}
+
+.login-bg .orb-1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(6, 214, 160, 0.12);
+    top: -150px;
+    right: -100px;
+}
+
+.login-bg .orb-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(99, 102, 241, 0.1);
+    bottom: -100px;
+    left: -50px;
+    animation-delay: 2s;
+}
+
+.login-bg .orb-3 {
+    width: 300px;
+    height: 300px;
+    background: rgba(239, 71, 111, 0.08);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 4s;
+}
+
+.login-container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    padding: var(--spacing-xl);
+    animation: fadeInUp 0.6s ease;
+}
+
+.login-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.login-logo .logo-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--bg-primary);
+}
+
+.login-logo h1 {
+    font-size: var(--font-3xl);
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.login-subtitle {
+    color: var(--text-secondary);
+    font-size: var(--font-md);
+    margin-bottom: var(--spacing-2xl);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.login-roles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.role-card {
+    padding: var(--spacing-xl);
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.role-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-color-hover);
+    box-shadow: var(--shadow-lg);
+}
+
+.role-card-icon {
+    font-size: 32px;
+    margin-bottom: var(--spacing-md);
+}
+
+.role-card h3 {
+    font-size: var(--font-lg);
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.role-card p {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.role-card .role-arrow {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    font-size: 18px;
+    color: var(--text-muted);
+    transition: all var(--transition-fast);
+}
+
+.role-card:hover .role-arrow {
+    color: var(--accent-primary);
+    transform: translateX(4px);
+}
+
+.role-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.role-card:hover::after {
+    opacity: 1;
+}
+
+.role-card.admin::after {
+    background: var(--gradient-secondary);
+}
+
+.role-card.lender::after {
+    background: var(--gradient-primary);
+}
+
+.role-card.borrower::after {
+    background: var(--gradient-warm);
+}
+
+.role-card.analyst::after {
+    background: linear-gradient(135deg, #a855f7, #6366f1);
+}
+
+@media (max-width: 600px) {
+    .login-roles {
+        grid-template-columns: 1fr;
+    }
+}
